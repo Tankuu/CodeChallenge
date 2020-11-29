@@ -1,0 +1,26 @@
+main: xyz.tanku.suggestionbox.SuggestionBox
+name: SuggestionBox
+version: 1.0
+api-version: 1.16
+description: Basic "suggestion box" plugin for MunchyMC Code Challenge.
+commands:
+  suggest:
+    description: Create a suggestion to improve the server.
+    permission: suggestionbox.suggest
+    permission-message: "§cYou do not have the required permission to run this command: §4suggestionbox.suggest"
+    usage: "§cUsage: /suggest <suggestion>"
+  view:
+    description: View all suggestions or player-specific suggestions.
+    permission: suggestionbox.view
+    permission-message: "§cYou do not have the required permission to run this command: §4suggestionbox.view"
+    usage: "§cUsage: /view <optional UUID>"
+permissions:
+  suggestionbox.suggest:
+    description: Allows the user to make a suggestion for the server.
+    default: true
+  suggestionbox.mod.notify:
+    description: Notifies the user when a new suggestion is made.
+    default: op
+  suggestionbox.view:
+    description: Allows the user to view all suggestions or player-specific suggestions.
+    default: op

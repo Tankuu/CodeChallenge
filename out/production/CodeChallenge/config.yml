@@ -1,0 +1,10 @@
+mysql:
+  enabled: true
+  ip: localhost
+  user: sqluser
+
+  # This will be set as the database password as well.
+  password: sqluserpw
+
+  # String defining the name of the database. It is recommended to change this before you first run the plugin.
+  database: suggestionbox

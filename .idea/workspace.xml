@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CodeChallenge" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="16e0c644-a634-4f20-b5f7-fa2f013f11fb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kporsg83ik47dDNOodnMVf1mtx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/spigot-1.16.4.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16e0c644-a634-4f20-b5f7-fa2f013f11fb" name="Default Changelist" comment="" />
+      <created>1606407095677</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606407095677</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="903" y="306" key="#com.intellij.ide.util.MemberChooser" timestamp="1606585716480">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="903" y="306" key="#com.intellij.ide.util.MemberChooser/0.0.2194.1194/-1680.592.1680.1010/3840.609.1680.1010@0.0.2194.1194" timestamp="1606585716480" />
+    <state x="802" y="338" key="FileChooserDialogImpl" timestamp="1606592084413">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="802" y="338" key="FileChooserDialogImpl/0.0.2194.1194/-1680.592.1680.1010/3840.609.1680.1010@0.0.2194.1194" timestamp="1606592084413" />
+    <state x="578" y="171" key="SettingsEditor" timestamp="1606591391990">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="578" y="171" key="SettingsEditor/0.0.2194.1194/-1680.592.1680.1010/3840.609.1680.1010@0.0.2194.1194" timestamp="1606591391990" />
+    <state x="793" y="421" key="com.intellij.ide.util.TipDialog" timestamp="1606585248891">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="793" y="421" key="com.intellij.ide.util.TipDialog/0.0.2194.1194/-1680.592.1680.1010/3840.609.1680.1010@0.0.2194.1194" timestamp="1606585248891" />
+    <state x="828" y="352" key="extract.method.dialog" timestamp="1606601754084">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="828" y="352" key="extract.method.dialog/0.0.2194.1194/-1680.592.1680.1010/3840.609.1680.1010@0.0.2194.1194" timestamp="1606601754084" />
+    <state x="760" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1606588738970">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="760" y="264" width="672" height="678" key="search.everywhere.popup/0.0.2194.1194/-1680.592.1680.1010/3840.609.1680.1010@0.0.2194.1194" timestamp="1606588738970" />
+  </component>
+</project>
