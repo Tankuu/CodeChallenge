@@ -4,24 +4,30 @@ import xyz.tanku.suggestionbox.SuggestionBox;
 import xyz.tanku.suggestionbox.sql.MySQLAccess;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
 
 public class SQLUtils {
 
+    private PreparedStatement ps = null;
+
     private MySQLAccess mySQLAccess = SuggestionBox.getInstance().getMySQLAccess();
 
     public void addSuggestion(String uuid, String suggestion) throws Exception {
         String fixedUuid = getFixedUUID(uuid);
         Connection connection = mySQLAccess.getConnection();
-        Statement s = connection.createStatement();
 
-        s.execute("use " + SuggestionBox.getInstance().getSqlId());
+        ps = connection.prepareStatement(
+                "CREATE TABLE IF NOT EXISTS ? (suggestions TEXT) INSERT INTO ? (suggestions) VALUES ('?')");
+        ps.setString(1, fixedUuid);
+        ps.setString(2, fixedUuid);
+        ps.setString(3, suggestion);
 
-        s.execute("CREATE TABLE IF NOT EXISTS " + fixedUuid + " (suggestions TEXT)");
+        ps.executeUpdate();
 
-        s.execute("INSERT INTO " + fixedUuid + " (suggestions) VALUES ('" + suggestion + "')");
+        connection.commit();
     }
 
     public static String getFixedUUID(String uuid) {
@@ -40,12 +46,10 @@ public class SQLUtils {
 
     public List<String> getTables() throws Exception {
         Connection connection = mySQLAccess.getConnection();
-        Statement s = connection.createStatement();
-
-        s.execute("use " + SuggestionBox.getInstance().getSqlId());
+        ps = connection.prepareStatement("SHOW TABLES");
 
         List<String> l = new ArrayList<>();
-        ResultSet set = s.executeQuery("SHOW TABLES");
+        ResultSet set = ps.executeQuery();
         while (set.next()) {
             l.add(set.getString("Tables_in_suggestionbox"));
         }
@@ -55,12 +59,11 @@ public class SQLUtils {
 
     public List<String> getSuggestions(String uuid) throws Exception {
         Connection connection = mySQLAccess.getConnection();
-        Statement s = connection.createStatement();
-
-        s.execute("use " + SuggestionBox.getInstance().getSqlId());
+        ps = connection.prepareStatement("SELECT suggestions FROM ?");
+        ps.setString(1, uuid);
 
         List<String> l = new ArrayList<>();
-        ResultSet set = s.executeQuery("SELECT suggestions FROM " + uuid);
+        ResultSet set = ps.executeQuery();
         while (set.next()) {
             l.add(set.getString("suggestions"));
         }
@@ -70,15 +73,14 @@ public class SQLUtils {
 
     public Map<String, List<String>> getAllSuggestions() throws Exception {
         Connection connection = mySQLAccess.getConnection();
-        Statement s = connection.createStatement();
-
-        s.execute("use " + SuggestionBox.getInstance().getSqlId());
+        ps = connection.prepareStatement("SELECT suggestions FROM ?");
 
         List<String> tables = this.getTables();
         Map<String, List<String>> map = new HashMap<>();
 
         for (String str : tables) {
-            ResultSet set = s.executeQuery("SELECT suggestions FROM " + str);
+            ps.setString(1, str);
+            ResultSet set = ps.executeQuery();
             List<String> l = new ArrayList<>();
             while (set.next()) {
                 l.add(set.getString("suggestions"));
