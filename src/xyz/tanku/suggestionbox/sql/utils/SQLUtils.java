@@ -11,14 +11,15 @@ import java.util.*;
 
 public class SQLUtils {
 
+    private Connection connection = null;
     private PreparedStatement ps = null;
 
     private MySQLAccess mySQLAccess = SuggestionBox.getInstance().getMySQLAccess();
 
     public void addSuggestion(String uuid, String suggestion) throws Exception {
         String fixedUuid = getFixedUUID(uuid);
-        Connection connection = mySQLAccess.getConnection();
 
+        connection = mySQLAccess.getConnection();
         ps = connection.prepareStatement(
                 "CREATE TABLE IF NOT EXISTS ? (suggestions TEXT) INSERT INTO ? (suggestions) VALUES ('?')");
         ps.setString(1, fixedUuid);
@@ -45,11 +46,12 @@ public class SQLUtils {
     }
 
     public List<String> getTables() throws Exception {
-        Connection connection = mySQLAccess.getConnection();
+        connection = mySQLAccess.getConnection();
         ps = connection.prepareStatement("SHOW TABLES");
 
         List<String> l = new ArrayList<>();
         ResultSet set = ps.executeQuery();
+        connection.commit();
         while (set.next()) {
             l.add(set.getString("Tables_in_suggestionbox"));
         }
@@ -58,12 +60,13 @@ public class SQLUtils {
     }
 
     public List<String> getSuggestions(String uuid) throws Exception {
-        Connection connection = mySQLAccess.getConnection();
+        connection = mySQLAccess.getConnection();
         ps = connection.prepareStatement("SELECT suggestions FROM ?");
         ps.setString(1, uuid);
 
         List<String> l = new ArrayList<>();
         ResultSet set = ps.executeQuery();
+        connection.commit();
         while (set.next()) {
             l.add(set.getString("suggestions"));
         }
@@ -72,7 +75,7 @@ public class SQLUtils {
     }
 
     public Map<String, List<String>> getAllSuggestions() throws Exception {
-        Connection connection = mySQLAccess.getConnection();
+        connection = mySQLAccess.getConnection();
         ps = connection.prepareStatement("SELECT suggestions FROM ?");
 
         List<String> tables = this.getTables();
@@ -81,6 +84,7 @@ public class SQLUtils {
         for (String str : tables) {
             ps.setString(1, str);
             ResultSet set = ps.executeQuery();
+            connection.commit();
             List<String> l = new ArrayList<>();
             while (set.next()) {
                 l.add(set.getString("suggestions"));
